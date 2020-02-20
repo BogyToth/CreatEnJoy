@@ -1,0 +1,43 @@
+﻿@model CreatEnJoy.Models.CategoryMemberModel
+
+@{
+    ViewBag.Title = "CategoryMemberDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CategoryMemberDetails</h2>
+
+<div>
+    <h4>CategoryMemberModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDCategoryMember)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCategoryMember)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDMember)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDMember)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {id = Model.IDCategoryMember}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

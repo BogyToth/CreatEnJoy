@@ -1,0 +1,49 @@
+﻿@model CreatEnJoy.Models.CategoryPostModel
+
+@{
+    ViewBag.Title = "DeleteCategoryPost";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DeleteCategoryPost</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CategoryPostModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDCategoryPost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCategoryPost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDPost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDPost)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

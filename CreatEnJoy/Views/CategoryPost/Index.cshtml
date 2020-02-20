@@ -1,0 +1,46 @@
+﻿@model IEnumerable<CreatEnJoy.Models.CategoryPostModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDCategoryPost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IDPost)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDCategoryPost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDPost)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new {id=item.IDCategoryPost}) |
+            @Html.ActionLink("Details", "Details", new {id=item.IDCategoryPost}) |
+            @Html.ActionLink("Delete", "Delete", new {id=item.IDCategoryPost})
+        </td>
+    </tr>
+}
+
+</table>

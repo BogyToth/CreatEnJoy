@@ -1,0 +1,43 @@
+﻿@model CreatEnJoy.Models.CategoryPostModel
+
+@{
+    ViewBag.Title = "CategoryPostDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CategoryPostDetails</h2>
+
+<div>
+    <h4>CategoryPostModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDCategoryPost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCategoryPost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDPost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDPost)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {id = Model.IDCategoryPost}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreatEnJoy", "CreatEnJoy\CreatEnJoy.csproj", "{F7648ED2-5608-47F2-80C3-A50349F2E443}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreatEnJoy.Tests", "CreatEnJoy.Tests\CreatEnJoy.Tests.csproj", "{173B1D38-A6D6-4885-ABB8-EA047AFDA52B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7648ED2-5608-47F2-80C3-A50349F2E443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7648ED2-5608-47F2-80C3-A50349F2E443}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7648ED2-5608-47F2-80C3-A50349F2E443}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7648ED2-5608-47F2-80C3-A50349F2E443}.Release|Any CPU.Build.0 = Release|Any CPU
+		{173B1D38-A6D6-4885-ABB8-EA047AFDA52B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{173B1D38-A6D6-4885-ABB8-EA047AFDA52B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{173B1D38-A6D6-4885-ABB8-EA047AFDA52B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{173B1D38-A6D6-4885-ABB8-EA047AFDA52B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7C3AC1DD-3926-4E4A-B054-4A70DE07E4E1}
+	EndGlobalSection
+EndGlobal
