@@ -16,6 +16,7 @@
       <Column Name="Description" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
       <Column Name="Title" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
       <Association Name="Member_CategoryMember" Member="CategoryMembers" ThisKey="IDMember" OtherKey="IDMember" Type="CategoryMember" />
+      <Association Name="Member_Post" Member="Posts" ThisKey="IDMember" OtherKey="IDMember" Type="Post" />
     </Type>
   </Table>
   <Table Name="dbo.CategoryPosts" Member="CategoryPosts">
@@ -34,7 +35,9 @@
       <Column Name="Description" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="PostDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="IDCategory" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="IDMember" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
       <Association Name="Post_CategoryPost" Member="CategoryPosts" ThisKey="IDPost" OtherKey="IDPost" Type="CategoryPost" />
+      <Association Name="Member_Post" Member="Member" ThisKey="IDMember" OtherKey="IDMember" Type="Member" IsForeignKey="true" />
       <Association Name="Category_Post" Member="Category" ThisKey="IDCategory" OtherKey="IDCategory" Type="Category" IsForeignKey="true" />
     </Type>
   </Table>
@@ -43,7 +46,6 @@
       <Column Name="IDCategory" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
       <Column Name="Description" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
-      <Column Name="NumberPosts" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
       <Column Name="ImageURL" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Association Name="Category_CategoryMember" Member="CategoryMembers" ThisKey="IDCategory" OtherKey="IDCategory" Type="CategoryMember" />
       <Association Name="Category_CategoryPost" Member="CategoryPosts" ThisKey="IDCategory" OtherKey="IDCategory" Type="CategoryPost" />

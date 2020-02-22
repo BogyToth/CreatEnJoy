@@ -326,6 +326,8 @@ namespace CreatEnJoy.Models.DBObjects
 		
 		private EntitySet<CategoryMember> _CategoryMembers;
 		
+		private EntitySet<Post> _Posts;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -343,6 +345,7 @@ namespace CreatEnJoy.Models.DBObjects
 		public Member()
 		{
 			this._CategoryMembers = new EntitySet<CategoryMember>(new Action<CategoryMember>(this.attach_CategoryMembers), new Action<CategoryMember>(this.detach_CategoryMembers));
+			this._Posts = new EntitySet<Post>(new Action<Post>(this.attach_Posts), new Action<Post>(this.detach_Posts));
 			OnCreated();
 		}
 		
@@ -439,6 +442,19 @@ namespace CreatEnJoy.Models.DBObjects
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Member_Post", Storage="_Posts", ThisKey="IDMember", OtherKey="IDMember")]
+		public EntitySet<Post> Posts
+		{
+			get
+			{
+				return this._Posts;
+			}
+			set
+			{
+				this._Posts.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -466,6 +482,18 @@ namespace CreatEnJoy.Models.DBObjects
 		}
 		
 		private void detach_CategoryMembers(CategoryMember entity)
+		{
+			this.SendPropertyChanging();
+			entity.Member = null;
+		}
+		
+		private void attach_Posts(Post entity)
+		{
+			this.SendPropertyChanging();
+			entity.Member = this;
+		}
+		
+		private void detach_Posts(Post entity)
 		{
 			this.SendPropertyChanging();
 			entity.Member = null;
@@ -680,7 +708,11 @@ namespace CreatEnJoy.Models.DBObjects
 		
 		private System.Nullable<System.Guid> _IDCategory;
 		
+		private System.Nullable<System.Guid> _IDMember;
+		
 		private EntitySet<CategoryPost> _CategoryPosts;
+		
+		private EntityRef<Member> _Member;
 		
 		private EntityRef<Category> _Category;
 		
@@ -698,11 +730,14 @@ namespace CreatEnJoy.Models.DBObjects
     partial void OnPostDateChanged();
     partial void OnIDCategoryChanging(System.Nullable<System.Guid> value);
     partial void OnIDCategoryChanged();
+    partial void OnIDMemberChanging(System.Nullable<System.Guid> value);
+    partial void OnIDMemberChanged();
     #endregion
 		
 		public Post()
 		{
 			this._CategoryPosts = new EntitySet<CategoryPost>(new Action<CategoryPost>(this.attach_CategoryPosts), new Action<CategoryPost>(this.detach_CategoryPosts));
+			this._Member = default(EntityRef<Member>);
 			this._Category = default(EntityRef<Category>);
 			OnCreated();
 		}
@@ -811,6 +846,30 @@ namespace CreatEnJoy.Models.DBObjects
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDMember", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> IDMember
+		{
+			get
+			{
+				return this._IDMember;
+			}
+			set
+			{
+				if ((this._IDMember != value))
+				{
+					if (this._Member.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIDMemberChanging(value);
+					this.SendPropertyChanging();
+					this._IDMember = value;
+					this.SendPropertyChanged("IDMember");
+					this.OnIDMemberChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Post_CategoryPost", Storage="_CategoryPosts", ThisKey="IDPost", OtherKey="IDPost")]
 		public EntitySet<CategoryPost> CategoryPosts
 		{
@@ -821,6 +880,40 @@ namespace CreatEnJoy.Models.DBObjects
 			set
 			{
 				this._CategoryPosts.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Member_Post", Storage="_Member", ThisKey="IDMember", OtherKey="IDMember", IsForeignKey=true)]
+		public Member Member
+		{
+			get
+			{
+				return this._Member.Entity;
+			}
+			set
+			{
+				Member previousValue = this._Member.Entity;
+				if (((previousValue != value) 
+							|| (this._Member.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Member.Entity = null;
+						previousValue.Posts.Remove(this);
+					}
+					this._Member.Entity = value;
+					if ((value != null))
+					{
+						value.Posts.Add(this);
+						this._IDMember = value.IDMember;
+					}
+					else
+					{
+						this._IDMember = default(Nullable<System.Guid>);
+					}
+					this.SendPropertyChanged("Member");
+				}
 			}
 		}
 		
@@ -903,8 +996,6 @@ namespace CreatEnJoy.Models.DBObjects
 		
 		private string _Description;
 		
-		private decimal _NumberPosts;
-		
 		private string _ImageURL;
 		
 		private EntitySet<CategoryMember> _CategoryMembers;
@@ -923,8 +1014,6 @@ namespace CreatEnJoy.Models.DBObjects
     partial void OnNameChanged();
     partial void OnDescriptionChanging(string value);
     partial void OnDescriptionChanged();
-    partial void OnNumberPostsChanging(decimal value);
-    partial void OnNumberPostsChanged();
     partial void OnImageURLChanging(string value);
     partial void OnImageURLChanged();
     #endregion
@@ -993,26 +1082,6 @@ namespace CreatEnJoy.Models.DBObjects
 					this._Description = value;
 					this.SendPropertyChanged("Description");
 					this.OnDescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumberPosts", DbType="Decimal(18,0) NOT NULL")]
-		public decimal NumberPosts
-		{
-			get
-			{
-				return this._NumberPosts;
-			}
-			set
-			{
-				if ((this._NumberPosts != value))
-				{
-					this.OnNumberPostsChanging(value);
-					this.SendPropertyChanging();
-					this._NumberPosts = value;
-					this.SendPropertyChanged("NumberPosts");
-					this.OnNumberPostsChanged();
 				}
 			}
 		}

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CreatEnJoy.Models;
+using CreatEnJoy.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -25,6 +27,7 @@ namespace CreatEnJoy.Controllers
         }
 
         // GET: Category/Create
+        [Authorize(Roles ="Admin")]
         public ActionResult Create()
         {
             return View("CreateCategory");
@@ -32,6 +35,7 @@ namespace CreatEnJoy.Controllers
 
         // POST: Category/Create
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult Create(FormCollection collection)
         {
             try
@@ -49,6 +53,7 @@ namespace CreatEnJoy.Controllers
         }
 
         // GET: Category/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(Guid id)
         {
             Models.CategoryModel categoryModel = categoryRepository.GetCategoryByID(id);
@@ -57,6 +62,7 @@ namespace CreatEnJoy.Controllers
 
         // POST: Category/Edit/5
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(Guid id, FormCollection collection)
         {
             try
@@ -74,6 +80,7 @@ namespace CreatEnJoy.Controllers
         }
 
         // GET: Category/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(Guid id)
         {
             Models.CategoryModel categoryModel = categoryRepository.GetCategoryByID(id);
@@ -82,10 +89,17 @@ namespace CreatEnJoy.Controllers
 
         // POST: Category/Delete/5
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(Guid id, FormCollection collection)
         {
             try
             {
+                List<PostModel> posts =postRepository.GetAllPostsByCategoryId(id);
+                foreach (PostModel post in posts)
+                {
+                    postRepository.DeletePost(posts.IDPost);
+                }
+
                 categoryRepository.DeleteCategory(id);
 
                 return RedirectToAction("Index");

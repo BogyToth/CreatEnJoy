@@ -54,6 +54,20 @@ namespace CreatEnJoy.Repository
         }
         public void DeletePost(Guid ID)
         {
+            public List<PostModel> GetAllPostsByID(Guid id)
+            {
+                List<PostModel> membershipsList = new List<PostModel>();
+                List<PostModel> post = dbContext.Post.Where(x =>x.IDCategory == id).ToList();
+                foreach (Models.DBObjects.Post dbPost in post)
+                {
+                    PostModel postModel = new PostModel();
+                    postModel.IDPost = dbPost.IDPost;
+                    postModel.IDPost = dbPost.IDPost;
+                    postModel.IDCategory = dbPost.IDCategory;
+                    postList.Add(postModel);
+                }
+                return membershipsList;
+            }
             //get existing record to delete
             Models.DBObjects.Post postToDelete = dbContext.Posts.FirstOrDefault(x => x.IDPost == ID);
             if (postToDelete != null)
@@ -62,6 +76,22 @@ namespace CreatEnJoy.Repository
                 dbContext.SubmitChanges(); //commit to db
             }
         }
+
+        internal static void DeletePost(object iDPosts)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static void DeletePost(object iDPost)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal static List<PostModel> GetAllPostsByCategoryId(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
         //map ORM model to Model object – mapper method
         private PostModel MapDbObjectToModel(Models.DBObjects.Post dbPost)
         {

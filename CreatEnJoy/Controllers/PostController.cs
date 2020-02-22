@@ -42,6 +42,13 @@ namespace CreatEnJoy.Controllers
             {
                 Models.PostModel postModel = new Models.PostModel();
                 UpdateModel(postModel);
+                //adaugare tag utilizator
+                if (User.Identity.IsAuthenticated) //daca avem utilizator logat
+                {
+                    postModel.Subject= User.Identity.Name + ": " + postModel.Subject;
+                    postModel.Description = postModel.Description + "," + User.Identity.Name;
+                }
+
                 postRepository.InsertPost(postModel);
 
 

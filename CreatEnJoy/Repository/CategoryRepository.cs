@@ -47,7 +47,6 @@ namespace CreatEnJoy.Repository
                 //map updated values with keeping the ORM object reference
                 existingCategory.IDCategory = categoryModel.IDCategory;
                 existingCategory.Name = categoryModel.Name;
-                existingCategory.NumberPosts = categoryModel.NumberPosts;
                 existingCategory.Description = categoryModel.Description;
                 dbContext.SubmitChanges();//commit to db
             }
@@ -69,7 +68,6 @@ namespace CreatEnJoy.Repository
             if (dbCategory != null)
             {
                 categoryModel.IDCategory = dbCategory.IDCategory;
-                categoryModel.NumberPosts = Convert.ToInt32(dbCategory.NumberPosts);
                 categoryModel.Name = dbCategory.Name;
                 categoryModel.Description = dbCategory.Description;
                 categoryModel.ImageURL = dbCategory.ImageURL;
@@ -85,7 +83,6 @@ namespace CreatEnJoy.Repository
             {
                 dbCategoryModel.IDCategory = categoryModel.IDCategory;
                 dbCategoryModel.Name = categoryModel.Name;
-                dbCategoryModel.NumberPosts = categoryModel.NumberPosts;
                 dbCategoryModel.Description = categoryModel.Description;
                 dbCategoryModel.ImageURL = categoryModel.ImageURL;
                 return dbCategoryModel;
