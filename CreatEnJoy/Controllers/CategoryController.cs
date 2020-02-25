@@ -97,7 +97,7 @@ namespace CreatEnJoy.Controllers
                 List<PostModel> posts =postRepository.GetAllPostsByCategoryId(id);
                 foreach (PostModel post in posts)
                 {
-                    postRepository.DeletePost(posts.IDPost);
+                    postRepository.DeletePost(post.IDPost);
                 }
 
                 categoryRepository.DeleteCategory(id);

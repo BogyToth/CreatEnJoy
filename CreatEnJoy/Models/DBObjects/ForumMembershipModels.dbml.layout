@@ -33,44 +33,44 @@
         <elementListCompartment Id="02aae63c-3ee1-4c7b-a07d-df8de2f8086c" absoluteBounds="0.51500000000000012, 4.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.5 : 4.50564697265625); (4.375 : 4.50564697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.5 : 4.70119466145833); (3.66666666666667 : 4.70119466145833 : JumpStart); (3.83333333333333 : 4.70119466145833 : JumpEnd); (4.375 : 4.70119466145833)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ForumMembershipModelsDataContext/Post/Post_CategoryPost" />
       <nodes>
         <classShapeMoniker Id="a52f59a0-31d4-419c-9e1d-64f7b51b52c8" />
         <classShapeMoniker Id="d541e604-6ebe-48f1-9a50-9eb71621595e" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.5 : 2.07859537760417); (2.875 : 2.45359537760417); (2.875 : 3.875); (2.5 : 4.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(1.5 : 2.07859537760417); (1.5 : 4.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ForumMembershipModelsDataContext/Member/Member_Post" />
       <nodes>
         <classShapeMoniker Id="02d4e688-8f47-47ba-a613-aec410d44fa0" />
         <classShapeMoniker Id="a52f59a0-31d4-419c-9e1d-64f7b51b52c8" />
       </nodes>
     </associationConnector>
-    <classShape Id="e9680f3b-2595-411e-8185-f00466fe1100" absoluteBounds="0.5, 2.375, 2, 1.5785953776041666">
+    <classShape Id="fdc75afa-583f-4136-a975-6312ef2b1d27" absoluteBounds="2.75, 3, 2, 1.5785953776041666">
       <DataClassMoniker Name="/ForumMembershipModelsDataContext/Category" />
       <nestedChildShapes>
-        <elementListCompartment Id="802c9571-f46e-4cbe-882a-a285b19eeed5" absoluteBounds="0.51500000000000012, 2.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="5fb433a3-1341-4599-9014-98db8e38ac66" absoluteBounds="2.765, 3.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.5 : 2.69314697265625); (2.79166666666667 : 2.69314697265625 : JumpStart); (2.95833333333333 : 2.69314697265625 : JumpEnd); (4.375 : 2.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(3.5312475 : 3); (3.5312475 : 2.45715084440104); (4.375 : 2.45715084440104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ForumMembershipModelsDataContext/Category/Category_CategoryMember" />
       <nodes>
-        <classShapeMoniker Id="e9680f3b-2595-411e-8185-f00466fe1100" />
+        <classShapeMoniker Id="fdc75afa-583f-4136-a975-6312ef2b1d27" />
         <classShapeMoniker Id="cc13a216-488b-41b7-995c-40eb3f91ceee" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.5 : 3.66429768880208); (2.79166666666667 : 3.66429768880208 : JumpStart); (2.95833333333333 : 3.66429768880208 : JumpEnd); (4.375 : 3.66429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(3.75 : 4.57859537760417); (3.75 : 5.0112939453125); (5.375 : 5.0112939453125); (5.375 : 4.7612939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ForumMembershipModelsDataContext/Category/Category_CategoryPost" />
       <nodes>
-        <classShapeMoniker Id="e9680f3b-2595-411e-8185-f00466fe1100" />
+        <classShapeMoniker Id="fdc75afa-583f-4136-a975-6312ef2b1d27" />
         <classShapeMoniker Id="d541e604-6ebe-48f1-9a50-9eb71621595e" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.4687475 : 3.95359537760417); (1.4687475 : 4.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 3.593748); (2.031252 : 3.593748); (2.031252 : 4.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ForumMembershipModelsDataContext/Category/Category_Post" />
       <nodes>
-        <classShapeMoniker Id="e9680f3b-2595-411e-8185-f00466fe1100" />
+        <classShapeMoniker Id="fdc75afa-583f-4136-a975-6312ef2b1d27" />
         <classShapeMoniker Id="a52f59a0-31d4-419c-9e1d-64f7b51b52c8" />
       </nodes>
     </associationConnector>

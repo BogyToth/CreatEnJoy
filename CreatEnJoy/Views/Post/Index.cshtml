@@ -44,13 +44,15 @@
         <td>
             @{ 
                 if ((User.IsInRole("Admin") || User.IsInRole("User")) && item.Description.Contains(User.Identity.Name))
-                        @Html.ActionLink("Edit", "Edit", new { id = item.IDPost }) |
-             }
-                         @Html.ActionLink("Details", "Details", new {id=item.IDPost}) |
+                { Html.ActionLink("Edit", "Edit", new { id = item.IDPost }); }
+            }
+                         @Html.ActionLink("Details", "Details", new {id=item.IDPost}) 
             @{ 
-                if(User.IsInRole("Admin") && item.Description.Contains(User.Identity.Name) && item.Subject.Contains(User.Identity.Name))
-                        @Html.ActionLink("Delete", "Delete", new {id=item.IDPost})
-             }
+                if (User.IsInRole("Admin") && item.Description.Contains(User.Identity.Name) && item.Subject.Contains(User.Identity.Name))
+                {
+                    Html.ActionLink("Delete", "Delete", new { id = item.IDPost });
+                }
+            }
         </td>
     </tr>
 }
