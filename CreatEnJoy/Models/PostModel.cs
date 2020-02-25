@@ -8,9 +8,9 @@ namespace CreatEnJoy.Models
 {
     public class PostModel
     {
-        public Guid IDPost { get; set; }
+        public Guid IDPost { get;}
         [Required(ErrorMessage="Mandatory field")]
-        public DateTime PostDate { get; set; }
+        public DateTime PostDate { get;}
         [Required(ErrorMessage = "Mandatory field")]
         [StringLength(250,ErrorMessage ="String too long (max. 250 chars)")]
         public string Subject { get; set; }
