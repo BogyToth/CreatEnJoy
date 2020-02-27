@@ -11,13 +11,13 @@
     <h4>PostModel</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.IDPost)
-        </dt>
+        </dt>*@
 
-        <dd>
+        @*<dd>
             @Html.DisplayFor(model => model.IDPost)
-        </dd>
+        </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.PostDate)
@@ -46,6 +46,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new {id = Model.IDPost}) |
+    @*@Html.ActionLink("Edit", "Edit", new {id = Model.IDPost}) |*@
     @Html.ActionLink("Back to List", "Index")
 </p>

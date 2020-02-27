@@ -19,10 +19,11 @@ namespace CreatEnJoy.Repository
         {
             this.dbContext = dbContext;
         }
-        public List<CategoryMemberModel> GetAllCategoryMembers()
+
+        public List<CategoryMemberModel> GetAllCategoryMembers(Guid IDMember)
         {
             List<CategoryMemberModel> categoryMemberList = new List<CategoryMemberModel>();
-            foreach (Models.DBObjects.CategoryMember dbCategoryMember in dbContext.CategoryMembers)
+            foreach (Models.DBObjects.CategoryMember dbCategoryMember in dbContext.CategoryMembers.Where(x=>x.IDMember == IDMember))
             {
                 categoryMemberList.Add(MapDbObjectToModel(dbCategoryMember));
             }

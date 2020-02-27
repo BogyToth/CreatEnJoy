@@ -32,6 +32,8 @@ namespace CreatEnJoy.Controllers
             SelectList lst = new SelectList(categories, "IDCategory", "Name");
             ViewData["category"] = lst;
             return View("CreatePost");
+            //ViewBag.IDCategory = new SelectList(categories, "IDCategory", "Name");
+            //return View("CreatePost");
         }
 
         // POST: Post/Create

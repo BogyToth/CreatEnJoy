@@ -12,7 +12,7 @@ namespace CreatEnJoy.Controllers
         // GET: CategoryMember
         public ActionResult Index() 
         {
-            List<Models.CategoryMemberModel> categoryMembers = categoryMemberRepository.GetAllCategoryMembers();
+            List<Models.CategoryMemberModel> categoryMembers = categoryMemberRepository.GetAllCategoryMembers(new Guid());
             return View("Index", categoryMembers);
         }
 

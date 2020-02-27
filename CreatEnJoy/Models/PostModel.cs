@@ -19,7 +19,9 @@ namespace CreatEnJoy.Models
 
         public string Description { get; set; }
         public Guid IDCategory { get; set; }
-        
+
+        public Guid IDMember { get; set; }
+
     }
 
 }
