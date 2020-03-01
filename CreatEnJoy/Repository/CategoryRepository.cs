@@ -1,4 +1,6 @@
 ﻿using CreatEnJoy.Models;
+using CreatEnJoy.Models.DBObjects;
+using CreatEnJoy.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -89,5 +91,24 @@ namespace CreatEnJoy.Repository
             }
             return null;
         }
+        public PostCategoryViewModel GetPostCategory(Guid categoryID)
+        { PostCategoryViewModel postCategoryViewModel = new PostCategoryViewModel();
+            Category category = forummembershipDataContext.Posts.FirstOrDefault(x => x.IDPost == categoryID);
+            if(category !=null)
+            {
+                postCategoryViewModel.Subject = category.Name;
+                postCategoryViewModel.Description = category.Description;
+                IQueryable<Post> categoryPosts = forumMembershipDataContext.Posts.Where(x => x.IDCategory == categoryID);
+                foreach (Post dbPost in categoryPosts)
+                {
+                    Models.PostModel postModel = new Models.PostModel();
+                    postModel.Subject = dbPost.Subject;
+                    postModel.Description = dbPost.Description;
+                    postCategoryViewModel.Posts.Add(postModel);
+                }
+            }
+            return postCategoryViewModel;
+        }
     }
+   
 }

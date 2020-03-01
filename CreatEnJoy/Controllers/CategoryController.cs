@@ -1,5 +1,6 @@
 ﻿using CreatEnJoy.Models;
 using CreatEnJoy.Repository;
+using CreatEnJoy.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +22,10 @@ namespace CreatEnJoy.Controllers
         // GET: Category/Details/5
         public ActionResult Details(Guid id)
         {
-            Models.CategoryModel categoryModel = categoryRepository.GetCategoryByID(id);
-            return View("CategoryDetails",categoryModel);
-
+            //Models.CategoryModel categoryModel = categoryRepository.GetCategoryByID(id);
+            //return View("CategoryDetails",categoryModel);
+            PostCategoryViewModel viewModel = categoryRepository.GetPostCategory(id);
+            return View(viewModel);
         }
 
         // GET: Category/Create

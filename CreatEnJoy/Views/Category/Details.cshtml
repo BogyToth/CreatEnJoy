@@ -1,0 +1,64 @@
+﻿@model CreatEnJoy.ViewModels.PostCategoryViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Details</h2>
+
+<div>
+    <h4>PostCategoryViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IDCategoryPost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCategoryPost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDCategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDPost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDPost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+    </dl>
+</div>
+@foreach (var item in Model.Posts)
+{
+    <div>
+        <p>
+            @Html.DisplayFor(modelItem => item.Subject)
+        </p>
+        <p>
+            @Html.DisplayFor(modelItem => item.Description)
+        </p>
+    </div>

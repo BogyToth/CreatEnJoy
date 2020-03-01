@@ -212,6 +212,7 @@
     <Compile Include="Repository\MemberRepository.cs" />
     <Compile Include="Repository\PostRepository.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\PostCategoryViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\forummembership.mdf" />
@@ -306,6 +307,7 @@
     <Content Include="Views\Member\MemberDetails.cshtml" />
     <Content Include="Views\Post\PostDetails.cshtml" />
     <Content Include="Views\CategoryPost\CategoryPostDetails.cshtml" />
+    <Content Include="Views\Category\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
