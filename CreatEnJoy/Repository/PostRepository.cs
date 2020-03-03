@@ -6,16 +6,16 @@ using System.Web;
 
 namespace CreatEnJoy.Repository
 {
-    public class postRepository
+    public class PostRepository
     {
         //injectam container-ul ORM
         private Models.DBObjects.ForumMembershipModelsDataContext dbContext;
-        public postRepository()
+        public PostRepository()
         {
             this.dbContext = new Models.DBObjects.ForumMembershipModelsDataContext();
         }
         //injectam un dbContext pentru a face repository noastra testabila
-        public postRepository(Models.DBObjects.ForumMembershipModelsDataContext dbContext)
+        public PostRepository(Models.DBObjects.ForumMembershipModelsDataContext dbContext)
         {
             this.dbContext = dbContext;
         }
