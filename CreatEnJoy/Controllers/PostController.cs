@@ -42,6 +42,10 @@ namespace CreatEnJoy.Controllers
         {
             try
             {
+                var categories = categoryRepository.GetAllCategory();
+                SelectList lst = new SelectList(categories, "IDCategory", "Name");
+                ViewData["categories"] = lst;
+                return View("CreatePost");
                 Models.PostModel postModel = new Models.PostModel();
                 UpdateModel(postModel);
                 //adaugare tag utilizator

@@ -1,4 +1,5 @@
-﻿using CreatEnJoy.Models.DBObjects;
+﻿using CreatEnJoy.Models;
+using CreatEnJoy.Models.DBObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,6 @@ namespace CreatEnJoy.ViewModels
         public Guid IDPost { get; set; }
         public string Subject { get; set; }
         public string Description { get; set; }
-        public List<Post> Posts = new List<Post>();
+        public List<PostModel> Posts = new List<PostModel>();
     }
 }

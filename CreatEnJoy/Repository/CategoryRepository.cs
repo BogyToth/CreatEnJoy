@@ -93,12 +93,12 @@ namespace CreatEnJoy.Repository
         }
         public PostCategoryViewModel GetPostCategory(Guid categoryID)
         { PostCategoryViewModel postCategoryViewModel = new PostCategoryViewModel();
-            Category category = forummembershipDataContext.Posts.FirstOrDefault(x => x.IDPost == categoryID);
+            Category category = dbContext.Categories.FirstOrDefault(x => x.IDCategory == categoryID);
             if(category !=null)
             {
                 postCategoryViewModel.Subject = category.Name;
                 postCategoryViewModel.Description = category.Description;
-                IQueryable<Post> categoryPosts = forumMembershipDataContext.Posts.Where(x => x.IDCategory == categoryID);
+                IQueryable<Post> categoryPosts = dbContext.Posts.Where(x => x.IDCategory == categoryID);
                 foreach (Post dbPost in categoryPosts)
                 {
                     Models.PostModel postModel = new Models.PostModel();
